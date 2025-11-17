@@ -20,7 +20,7 @@ body { background:#fbfbfb; color:#222; line-height:1.6; }
 /* ======= Hero ======= */
 .hero { padding:40px 0; background:linear-gradient(0deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03)); }
 .hero-inner { display:flex; gap:20px; align-items:center; justify-content:space-between; }
-.hero-text h2 { font-size:1.6rem; color:#b71c1c; margin-bottom:10px; }
+.hero-text h2 { font-size:1.6rem; color:whitesmoke; margin-bottom:10px; }
 .hero-text p { margin-bottom:16px; }
 .hero-photo img { width:380px; max-width:45vw; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.12); }
 
