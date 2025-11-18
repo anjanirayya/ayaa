@@ -1,0 +1,291 @@
+/* ========================== */
+/* ==== IMPORT FONT ==== */
+/* ========================== */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ========================== */
+/* ==== GLOBAL RESET ==== */
+/* ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fdfdfd;
+  color: #333;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Headings pakai Oswald biar tegas */
+h1, h2, h3, h4 {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ========================== */
+/* ========== HEADER ========= */
+/* ========================== */
+
+header {
+  background: linear-gradient(135deg, #000000 0%, #b71c1c 60%);
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  animation: fadeDown 1s ease-in-out;
+}
+
+/* ========================== */
+/* ======= NAVIGATION ======= */
+/* ========================== */
+
+nav {
+  background-color: #b71c1c;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: white;
+  transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  color: #ffdddd;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* ========================== */
+/* ======= HERO SECTION ======= */
+/* ========================== */
+
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url("images/paskibra-bg.jpg") center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  border-radius: 0 0 30px 30px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  animation: fadeUp 1s ease;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  animation: fadeUp 1.2s ease;
+}
+
+/* ========================== */
+/* ======= SECTION WRAP ===== */
+/* ========================== */
+
+section {
+  padding: 60px 10%;
+}
+
+/* ========================== */
+/* ========= ABOUT ========== */
+/* ========================== */
+
+.about {
+  background: #fff5f5;
+  border-radius: 15px;
+  padding: 40px;
+  animation: fadeIn 1.5s ease;
+}
+
+.about h2 {
+  font-size: 2rem;
+  color: #b71c1c;
+  margin-bottom: 10px;
+  border-bottom: 3px solid #b71c1c;
+  display: inline-block;
+}
+
+.about p {
+  margin-bottom: 10px;
+}
+
+/* ========================== */
+/* ======= ACTIVITIES ======= */
+/* ========================== */
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: 0.4s ease;
+  animation: fadeUp 1s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* ========================== */
+/* ========= PRESTASI ========= */
+/* ========================== */
+
+.prestasi {
+  margin-top: 40px;
+}
+
+.prestasi h2 {
+  font-size: 2rem;
+  color: #b71c1c;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #b71c1c;
+  display: inline-block;
+}
+
+.prestasi-list {
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.prestasi-list li {
+  padding: 8px 0;
+  font-size: 1.05rem;
+}
+
+/* ========================== */
+/* ========= CONTACT ========= */
+/* ========================== */
+
+.contact-form {
+  background: #fff5f5;
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-form h2 {
+  color: #b71c1c;
+  margin-bottom: 15px;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #b71c1c;
+}
+
+.contact-form button {
+  background: #b71c1c;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* ========================== */
+/* ========= FOOTER ========= */
+/* ========================== */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #b71c1c;
+  color: white;
+  margin-top: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* ========================== */
+/* ======= ANIMATIONS ======= */
+/* ========================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
