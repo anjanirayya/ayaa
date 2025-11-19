@@ -49,7 +49,7 @@ body {
 /* ===== HERO ===== */
 /* ========================== */
 .hero {
-  background: url("assets/images/paskibra-bg.jpg") center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.55), rgbaa(0,0,0,0.35)), url("assets/images/paskibra-bg.jpg") center/cover no-repeat;
   color: #fff;
   padding: 90px 0;
   border-bottom-left-radius:28px; border-bottom-right-radius:28px;
@@ -97,7 +97,7 @@ body {
 /* ========================== */
 /* ===== GALLERY ===== */
 /* ========================== */
-.gallery-section { background:#423c3c; color:white; padding:50px 0; border-radius:12px; margin-top:30px; }
+.gallery-section { background:#423c3c; color:white; padding:50px 0; border-radius:12px; margin-top:30px; solid:#b71c1c ; box-shadow:0 8px 30px rgba(0,0,0,0.08); }
 .gallery-section .section-title { font-family:"Oswald",sans-serif; font-size:2.4rem; text-align:center; margin-bottom:6px; color:#fff; }
 .gallery-section .section-sub { text-align:center; opacity:0.85; margin-bottom:18px; color:#ddd; }
 
