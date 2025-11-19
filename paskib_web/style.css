@@ -67,6 +67,8 @@ body {
   z-index: 1;
 }
 
+.hero-inner { display:flex; gap:30px; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+.hero-text { max-width:640px; }
 .hero h2 { font-family:"Oswald",sans-serif; font-size:2.6rem; margin-bottom:12px; letter-spacing:1px; }
 .hero p { font-size:1.05rem; margin-bottom:16px; color:rgba(255,255,255,0.9); 
   position: relative;
