@@ -40,6 +40,8 @@
     </div>
   </header>
 
+  <main>
+
   <!-- HERO SECTION -->
 <section id="home" class="hero" data-animate="fade-up-slow">
   <div class="hero-inner">
@@ -72,7 +74,7 @@
     disiplin, dan berprestasi.
   </p>
   <h3>Misi</h3>
-  <ul>
+  <ul class="about-list">
     <li>Meningkatkan kedisiplinan dan rasa tanggung jawab anggota</li>
     <li>Mengembangkan potensi diri anggota dalam berbagai bidang</li>
     <li>Meningkatkan kemampuan kepemimpinan dan komunikasi</li>
@@ -135,7 +137,7 @@
 <!-- PRESTASI SECTION -->
 <section id="prestasi" class="prestasi" data-animate="fade-left">
   <div class="container">
-    <h2>Prestasi</h2>
+    <h2>Performance</h2>
     <ul class="prestasi-list">
       <li><strong>LKBB KADISJARAHAD</strong> - Utama 3, PBB Terbaik 3, Pelatih Terbaik 3</li>
       <li><strong>LKBB Braven</strong> - Harapan Utama 2, Bina 1, Danton 3</li>
@@ -173,7 +175,38 @@
 </section>
 
 <!-- CONTACT -->
+<section id="contact" class="contact" data-animate="fade-right">
+  <div class="container">
+    <h2>Contact</h2>
+    <p>Isi formulir untuk info pendaftaran.</p>
 
+    <form id="contact" class="contact" data-animate="fade-right">
+      <label for="nama">Nama</label>
+      <input id="nama" name="nama" type="text" required>
 
+      <label for="kelas">Kelas</label>
+      <input id="kelas" name="kelas" type="text" placeholder="Contoh: X TJKT 2">
+
+      <label for="pesan">Alasan Masuk Ekskul</label>
+      <input id="pesan" name="pesan" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Kirim</button>
+    </form>
+
+    <p class="contact-info">📧 paskibra.smkn2baleendah@gmail.com • 📍 Jl. R.A.A Wiranata Kusumah No. 11 Baleendah</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer data-animate="fade-up">
+  <div class="container">
+    <p>© 2025 Paskibra SMKN 2 Baleendah</p>
+  </div>
+</footer>
+
+<!-- Script -->
+<script src="script.js"></script>
 </body>
 </html>
