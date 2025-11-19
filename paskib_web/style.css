@@ -75,6 +75,9 @@ body {
   z-index: 2;
 .hero .btn { display:inline-block; background:#fff; color:#b71c1c; padding:10px 16px; border-radius:10px; font-weight:700; text-decoration:none; }
 
+/* hero photo */
+.hero-photo img { width:420px; max-width:40vw; border-radius:12px; box-shadow:0 8px 30px rgba(0, 0, 0, o.4); }
+
 /* ========================== */
 /* ===== ABOUT ===== */
 /* ========================== */
