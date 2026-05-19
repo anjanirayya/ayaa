@@ -42,7 +42,7 @@ if (isset($_POST['simpan'])) {
     <label>Nama Lengkap</label>
     <input type="text" name="nama" value="<?php echo $_SESSION['nama_anggota']; ?>" readonly>
         <h3>PENGISIAN DATA ANGGOTA</h3>
-        <form method="POST">
+        <form action="tampil-data.php" method="POST">
             <label>Nama Lengkap</label>
             <input type="text" name="nama" required>
             
