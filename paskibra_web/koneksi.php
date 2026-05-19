@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "paskibra_db";
+$user = "2526_17";
+$pass = "12345678";
+$db   = "2526_17db";
 
 $conn = mysqli_connect($host, $user, $pass, $db);
 
