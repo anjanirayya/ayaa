@@ -28,7 +28,7 @@ include 'koneksi.php';
         }
 
         body {
-            background-color: #121212; /* Background gelap khas Paskibra modern */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('background-paskib.jpeg');
             color: #eeeeee;
         }
 

@@ -51,7 +51,7 @@ if (isset($_POST['simpan'])) {
         }
 
         body {
-            background-color: #121212; /* Latar belakang gelap sesuai tema Paskibra kamu */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('background-paskib.jpeg');
             color: #eeeeee;
             padding: 40px 20px;
         }
