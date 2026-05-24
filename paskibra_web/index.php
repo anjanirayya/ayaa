@@ -1,12 +1,11 @@
 <?php
+// Cukup nyalakan session dan hubungkan ke database saja
 session_start();
+include 'koneksi.php';
 
-// Jika tidak ada session nama_anggota (artinya belum login), tendang balik ke login.php
-if (!isset($_SESSION['nama_anggota'])) {
-    echo "<script>alert('Silakan login terlebih dahulu!'); window.location='login.php';</script>";
-    exit();
-}
+// KITA HAPUS ALERT "SILAKAN LOGIN DULU" BIAR GAK MENTAL LAGI
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

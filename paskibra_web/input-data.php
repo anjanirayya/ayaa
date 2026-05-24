@@ -1,68 +1,185 @@
 <?php
+// 1. Jalankan session di baris pertama
 session_start();
-include 'koneksi.php';
 
-// Kunci halaman: Kalau belum login, lempar balik ke login.php
-if (!isset($_SESSION['nama_anggota'])) {
-    header("location:login.php");
+// 2. Cek apakah user sudah login. Kalau belum, tendang ke halaman login
+if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
+    header("Location: index.php"); // Ganti login.php jika nama file loginmu itu
     exit();
 }
 
-if (isset($_POST['simpan'])) {
-    $nama = $_POST['nama'];
-    $nis = $_POST['nis'];
-    $kelas = $_POST['kelas'];
-    $jabatan = $_POST['jabatan'];
+// 3. Hubungkan ke database
+include 'koneksi.php';
 
-    $insert = mysqli_query($conn, "INSERT INTO data_diri VALUES('', '$nama', '$nis', '$kelas', '$jabatan')");
-    if ($insert) {
-        echo "<script>alert('Data berhasil disimpan!'); window.location='tampil-data.php';</script>";
+// 4. KUNCI PROSES: Kode di bawah ini HANYA berjalan kalau tombol "Simpan Data" SUDAH DIKLIK!
+if (isset($_POST['simpan'])) {
+    
+    // Ambil data yang diketik user di form
+    $nama    = mysqli_real_escape_string($conn, $_POST['nama']);
+    $nis     = mysqli_real_escape_string($conn, $_POST['nis']);
+    $kelas   = mysqli_real_escape_string($conn, $_POST['kelas']);
+    $jabatan = mysqli_real_escape_string($conn, $_POST['jabatan']);
+
+    // Perintah memasukkan data ke tabel anggota
+    $query_simpan = mysqli_query($conn, "INSERT INTO data_diri (nama, nis, kelas, jabatan) VALUES ('$nama', '$nis', '$kelas', '$jabatan')");
+
+    // Jika berhasil disimpan, muncul notifikasi lalu pindah ke halaman tampil data
+    if ($query_simpan) {
+        echo "<script>
+                alert('Data Anggota Paskibra Berhasil Disimpan!');
+                window.location.href='tampil-data.php';
+              </script>";
+        exit();
     } else {
-        echo "<script>alert('Gagal menyimpan data!');</script>";
+        echo "<script>alert('Gagal menyimpan data, coba cek database kamu!');</script>";
     }
-} // Tanda penutup IF yang benar dipindah ke sini (mengunci semua proses di atas)
+}
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Isi Data Diri</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Anggota</title>
     <style>
-        body { font-family: sans-serif; background: #222; color: white; display: flex; justify-content: center; padding-top: 50px; }
-        .form-container { background: #333; padding: 40px; border-radius: 8px; width: 400px; border: 1px solid #b22222; }
-        h3 { color: #ff4d4d; border-bottom: 2px solid #ff4d4d; padding-bottom: 10px; }
-        label { display: block; margin-top: 15px; }
-        input, select { width: 100%; padding: 10px; margin-top: 5px; background: #444; border: 1px solid #666; color: white; border-radius: 4px; box-sizing: border-box;}
-        .btn { background: #b22222; color: white; border: none; padding: 12px; margin-top: 20px; width: 100%; border-radius: 4px; cursor: pointer; font-weight: bold; }
-        .btn:hover { background: #ff4d4d; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212; /* Latar belakang gelap sesuai tema Paskibra kamu */
+            color: #eeeeee;
+            padding: 40px 20px;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 30px auto;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #b22222; /* Border merah tegas */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .form-container h2 span {
+            color: #ff4d4d;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            background-color: #252525;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff4d4d;
+        }
+
+        /* Tombol Simpan Merah Solid */
+        .btn-simpan {
+            width: 100%;
+            padding: 12px;
+            background-color: #b22222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-simpan:hover {
+            background-color: #ff4d4d;
+            box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+        }
+
+        .btn-kembali {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .btn-kembali:hover {
+            color: #ff4d4d;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <div class="form-group">
-    <label>Nama Lengkap</label>
-    <input type="text" name="nama" value="<?php echo $_SESSION['nama_anggota']; ?>" readonly>
-        <h3>PENGISIAN DATA ANGGOTA</h3>
-        <form action="tampil-data.php" method="POST">
-            <label>Nama Lengkap</label>
-            <input type="text" name="nama" required>
-            
-            <label>NIS</label>
-            <input type="text" name="nis" required>
-            
-            <label>Kelas</label>
-            <input type="text" name="kelas" placeholder="Contoh: XII TKJ 2" required>
-            
-            <label>Jabatan</label>
-            <select name="jabatan">
-                <option value="Anggota">Anggota</option>
-                <option value="Ketua">Ketua</option>
-                <option value="Wakil Ketua">Wakil Ketua</option>
-                <option value="Sekretaris">Sekretaris</option>
-                <option value="Bendahara">Bendahara</option>
-            </select>
 
-            <button type="submit" name="simpan" class="btn">SIMPAN DATA</button>
+    <div class="form-container">
+        <h2>Tambah <span>Anggota</span> Baru</h2>
+        
+        <form action="" method="POST">
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama" placeholder="Masukkan nama lengkap" required>
+            </div>
+
+            <div class="form-group">
+                <label>NIS</label>
+                <input type="text" name="nis" placeholder="Masukkan NIS" required>
+            </div>
+
+            <div class="form-group">
+                <label>Kelas</label>
+                <input type="text" name="kelas" placeholder="Masukkan kelas (misal: XI-RPL)" required>
+            </div>
+
+            <div class="form-group">
+                <label>Jabatan</label>
+                <select name="jabatan" required style="width: 100%; padding: 10px 12px; background-color: #252525; border: 1px solid #444; border-radius: 6px; color: #fff; font-size: 14px; outline: none; transition: 0.3s;">
+                    <option value="">-- Pilih Jabatan --</option>
+                    <option value="Ketua">Ketua</option>
+                    <option value="Wakil Ketua">Wakil Ketua</option>
+                    <option value="Sekretaris">Sekretaris</option>
+                    <option value="Bendahara">Bendahara</option>
+                    <option value="Anggota">Anggota</option>
+                </select>
+            </div>
+
+            <button type="submit" name="simpan" class="btn-simpan">Simpan Data</button>
+            
+            <a href="tampil-data.php" class="btn-kembali">← Kembali ke Data Anggota</a>
         </form>
     </div>
+
 </body>
 </html>
