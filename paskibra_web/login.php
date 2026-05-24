@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
 
         body {
             /* Pastikan file 'background.jpg' sudah ditaruh di dalam folder project kamu */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('background.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('backgroundd.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;

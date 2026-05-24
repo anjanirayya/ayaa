@@ -51,7 +51,7 @@ if (isset($_POST['simpan'])) {
         }
 
         body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('background.jpeg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('backgroundd.jpeg');
             color: #eeeeee;
             padding: 40px 20px;
         }
