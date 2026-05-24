@@ -171,6 +171,8 @@ if (isset($_POST['simpan'])) {
                     <option value="Wakil Ketua">Wakil Ketua</option>
                     <option value="Sekretaris">Sekretaris</option>
                     <option value="Bendahara">Bendahara</option>
+                    <option value="Humas">Humas</option>
+                    <option value="Sie Absensi">Sie Absensi</option>
                     <option value="Anggota">Anggota</option>
                 </select>
             </div>
