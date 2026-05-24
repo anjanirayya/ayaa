@@ -184,10 +184,8 @@ include 'koneksi.php';
         <h2>Daftar Anggota Paskibra</h2>
         
         <a href="input-data.php" class="btn-tambah">+ Tambah Anggota Paskibra</a>
-        <td>
-            <a href="edit.php?id=<?php echo $data['id']; ?>" style="color: #ff4d4d; text-decoration: none; font-weight: bold; margin-right: 10px;">Edit</a>
-            <a href="hapus.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Yakin ingin menghapus?')" style="color: #888; text-decoration: none;">Hapus</a>
-        </td>
+        <a href="edit.php?id=<?php echo $data['id']; ?>" style="color: #ff4d4d; text-decoration: none; font-weight: bold; margin-right: 10px;"></a>
+        <a href="hapus.php?id=<?php echo $data['id']; ?>" onclick="return confirm('Yakin ingin menghapus?')" style="color: #888; text-decoration: none;"></a>
         
         <table>
             <thead>
